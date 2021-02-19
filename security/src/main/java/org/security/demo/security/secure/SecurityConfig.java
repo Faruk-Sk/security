@@ -14,10 +14,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
         	.antMatchers("/login").permitAll()
          .antMatchers("/dashboard").hasIpAddress("192.168.43.34")
-            .antMatchers("/**").hasIpAddress("192.168.43.34")
-//          .antMatchers(" /dashboard").hasIpAddress("192.168.43.34")
-//          .antMatchers("/dashboard").hasIpAddress("255.255.255.0")
-//          .antMatchers("/dashboard").permitAll()
           .anyRequest().authenticated()
           .and()
           .csrf().disable();
