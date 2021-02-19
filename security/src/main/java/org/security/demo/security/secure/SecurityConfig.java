@@ -13,8 +13,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
         	.antMatchers("/login").permitAll()
-         .antMatchers("/dashboard").hasIpAddress("192.168.43.34")
-          .anyRequest().authenticated()
+          .anyRequest().hasIpAddress("192.168.43.34")
           .and()
           .csrf().disable();
     }
